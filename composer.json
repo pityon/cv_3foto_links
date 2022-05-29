@@ -1,0 +1,35 @@
+{
+    "name": "pityon/cv_3foto_links",
+    "description": "Convertis Boksy strony glownej",
+    "authors": [
+        {
+            "name": "PityoN",
+            "email": "pityon22@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cv3FotoLinks\\": "src/"
+        },
+        "classmap": [],
+        "exclude-from-classmap": []
+    },
+    "config": {
+        "preferred-install": "dist",
+        "prepend-autoloader": false
+    },
+    "type": "prestashop-module",
+    "author": "PityoN",
+    "license": "proprietary",
+    "scripts": {
+        "post-install-cmd": [
+            "composer dump-autoload"
+        ]
+    },
+    "extra": {
+        "installer-name": "cv_3foto_links"
+    }
+}

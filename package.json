@@ -1,0 +1,27 @@
+{
+  "name": "cv_3foto_links",
+  "version": "1.0.0",
+  "description": "Moduł generujący widok trzech zdjęć na stronie głównej z linkami i opisami.",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-debug": "^4.0.0",
+    "gulp-sourcemaps": "^3.0.0"
+  },
+  "scripts": {
+    "watch": "gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pityon/cv_3foto_links.git"
+  },
+  "author": "PityoN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pityon/cv_3foto_links/issues"
+  },
+  "homepage": "https://github.com/pityon/cv_3foto_links#readme"
+}
