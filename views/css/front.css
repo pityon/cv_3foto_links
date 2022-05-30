@@ -118,7 +118,7 @@
   margin-left: -10px;
   margin-right: -10px;
 }
-.cv_3foto_links .py-3 {
+.cv_3foto_links .py-3, .cv_3foto_links.py-3 {
   padding-top: 3rem !important;
   padding-bottom: 3rem !important;
 }
