@@ -262,21 +262,22 @@ class Cv_3foto_links extends Module
 
     protected function getConfigFormValues()
     {
+        $method = $this->legacyVersion() ? 'getInt' : 'getConfigInMultipleLangs';
         return array(
             // FIRST BLOCK
-            'CV_3FOTO_LINKS_FIRST_TITLE' => Configuration::getConfigInMultipleLangs('CV_3FOTO_LINKS_FIRST_TITLE', $this->l('Tytuł edytowalny z poziomu modułu ').$this->name),
-            'CV_3FOTO_LINKS_FIRST_DESC' => Configuration::getConfigInMultipleLangs('CV_3FOTO_LINKS_FIRST_DESC', $this->l('Opis edytowalny z poziomu modułu ').$this->name),
-            'CV_3FOTO_LINKS_FIRST_URL' => Configuration::getConfigInMultipleLangs('CV_3FOTO_LINKS_FIRST_URL', '#'),
+            'CV_3FOTO_LINKS_FIRST_TITLE' => Configuration::$method('CV_3FOTO_LINKS_FIRST_TITLE', $this->l('Tytuł edytowalny z poziomu modułu ').$this->name),
+            'CV_3FOTO_LINKS_FIRST_DESC' => Configuration::$method('CV_3FOTO_LINKS_FIRST_DESC', $this->l('Opis edytowalny z poziomu modułu ').$this->name),
+            'CV_3FOTO_LINKS_FIRST_URL' => Configuration::$method('CV_3FOTO_LINKS_FIRST_URL', '#'),
             'CV_3FOTO_LINKS_FIRST_IMAGE' => Configuration::get('CV_3FOTO_LINKS_FIRST_IMAGE'),
             // SECOND BLOCK
-            'CV_3FOTO_LINKS_SECOND_TITLE' => Configuration::getConfigInMultipleLangs('CV_3FOTO_LINKS_SECOND_TITLE', $this->l('Tytuł edytowalny z poziomu modułu ').$this->name),
-            'CV_3FOTO_LINKS_SECOND_DESC' => Configuration::getConfigInMultipleLangs('CV_3FOTO_LINKS_SECOND_DESC', $this->l('Opis edytowalny z poziomu modułu ').$this->name),
-            'CV_3FOTO_LINKS_SECOND_URL' => Configuration::getConfigInMultipleLangs('CV_3FOTO_LINKS_SECOND_URL', '#'),
+            'CV_3FOTO_LINKS_SECOND_TITLE' => Configuration::$method('CV_3FOTO_LINKS_SECOND_TITLE', $this->l('Tytuł edytowalny z poziomu modułu ').$this->name),
+            'CV_3FOTO_LINKS_SECOND_DESC' => Configuration::$method('CV_3FOTO_LINKS_SECOND_DESC', $this->l('Opis edytowalny z poziomu modułu ').$this->name),
+            'CV_3FOTO_LINKS_SECOND_URL' => Configuration::$method('CV_3FOTO_LINKS_SECOND_URL', '#'),
             'CV_3FOTO_LINKS_SECOND_IMAGE' => Configuration::get('CV_3FOTO_LINKS_SECOND_IMAGE'),
             // THIRD BLOCK
-            'CV_3FOTO_LINKS_THIRD_TITLE' => Configuration::getConfigInMultipleLangs('CV_3FOTO_LINKS_THIRD_TITLE', $this->l('Tytuł edytowalny z poziomu modułu ').$this->name),
-            'CV_3FOTO_LINKS_THIRD_DESC' => Configuration::getConfigInMultipleLangs('CV_3FOTO_LINKS_THIRD_DESC', $this->l('Opis edytowalny z poziomu modułu ').$this->name),
-            'CV_3FOTO_LINKS_THIRD_URL' => Configuration::getConfigInMultipleLangs('CV_3FOTO_LINKS_THIRD_URL', '#'),
+            'CV_3FOTO_LINKS_THIRD_TITLE' => Configuration::$method('CV_3FOTO_LINKS_THIRD_TITLE', $this->l('Tytuł edytowalny z poziomu modułu ').$this->name),
+            'CV_3FOTO_LINKS_THIRD_DESC' => Configuration::$method('CV_3FOTO_LINKS_THIRD_DESC', $this->l('Opis edytowalny z poziomu modułu ').$this->name),
+            'CV_3FOTO_LINKS_THIRD_URL' => Configuration::$method('CV_3FOTO_LINKS_THIRD_URL', '#'),
             'CV_3FOTO_LINKS_THIRD_IMAGE' => Configuration::get('CV_3FOTO_LINKS_THIRD_IMAGE'),
         );
     }
@@ -322,7 +323,8 @@ class Cv_3foto_links extends Module
                             }
                         }
 
-                        Configuration::updateValue($key, Tools::getValue($key));
+                        // Configuration::updateValue($key, Tools::getValue($key));
+                        Configuration::updateValue($key, $_FILES[$key]['name']);
                     }
                 }
             }
@@ -337,7 +339,7 @@ class Cv_3foto_links extends Module
             }
         }
 
-        return $warnings.$this->displayConfirmation($this->trans('The settings have been updated.', array(), 'Admin.Notifications.Success'));
+        return $warnings.$this->displayConfirmation($this->l('The settings have been updated.'));
     }
 
     
@@ -369,5 +371,10 @@ class Cv_3foto_links extends Module
         $this->context->smarty->assign('cv_3foto_blocks', $values);
         $this->context->smarty->assign('cv_3foto_upload_dir', _MODULE_DIR_ . 'cv_3foto_links/upload/');
         return $this->display(__FILE__, 'cv_3foto_links.tpl');
+    }
+
+    private function legacyVersion()
+    {
+        return version_compare(_PS_VERSION_, '1.7', '<');
     }
 }

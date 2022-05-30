@@ -1,6 +1,6 @@
 <div class="cv_3foto_links py-3">
     <div class="row">
-        {foreach from=$cv_3foto_blocks item=$block}
+        {foreach from=$cv_3foto_blocks item=block}
             {if $block.image}
                 <div class="col-md-4 item">
                     <div class="position-relative">
