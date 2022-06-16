@@ -3,7 +3,7 @@
 ![Generic badge](https://img.shields.io/badge/Prestashop-1.6-<COLOR>.svg)
 ![Generic badge](https://img.shields.io/badge/Prestashop-1.7-<COLOR>.svg)
 
-**Build 2022.05.30**
+**Build 2022.06.17**
 
 Moduł pozwala zdefiniować trzy boksy obrazkowe z opisami i linkami na stronie głównej.
 

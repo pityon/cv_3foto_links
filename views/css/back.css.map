@@ -1,0 +1,1 @@
+{"version":3,"sources":["back.scss","back.css"],"names":[],"mappings":"AACI;EACI,gBAAA;EACA,mBAAA;ACAR","file":"back.css","sourcesContent":[".admincv_3foto_links {\r\n    img.img-thumbnail {\r\n        max-width: 200px;\r\n        margin-bottom: 10px;\r\n    }\r\n}",".admincv_3foto_links img.img-thumbnail {\n  max-width: 200px;\n  margin-bottom: 10px;\n}"]}
